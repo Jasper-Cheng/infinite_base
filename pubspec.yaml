@@ -34,11 +34,12 @@ dependencies:
   permission_handler: ^11.0.1
   logger: ^2.0.2
   fluttertoast: ^8.2.2
-  shared_preferences: ^2.2.2
+  shared_preferences: ^2.2.1
   dio: ^5.3.3
   json_annotation: ^4.8.1
   flutter_easyloading: ^3.0.5
   web_socket_channel: ^2.4.0
+  flutter_screenutil: ^5.9.0
 
 
 dev_dependencies:
@@ -53,9 +54,15 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: base
+    - family: AlimamaDongFangDaKai
       fonts:
-        - asset: assets/fonts/base.ttf
+        - asset: assets/fonts/AlimamaDongFangDaKai-Regular.ttf
+    - family: AlimamaDaoLiTi
+      fonts:
+        - asset: assets/fonts/AlimamaDaoLiTi.ttf
+    - family: AlimamaFangYuanTiVF
+      fonts:
+        - asset: assets/fonts/AlimamaFangYuanTiVF-Thin.ttf
 
   assets:
     - assets/

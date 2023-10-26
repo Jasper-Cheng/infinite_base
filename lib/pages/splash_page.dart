@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infinite_base/configs/assets_config.dart';
 import 'package:infinite_base/bases/base_controller.dart';
 import 'package:infinite_base/bases/base_page.dart';
@@ -30,8 +31,8 @@ class SplashPageState extends BasePageState<SplashPage> {
         children: [
           Image.asset(
             AssetImageConfig.helloWorld,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: ScreenUtil().screenWidth,
+            height: ScreenUtil().screenHeight,
             fit: BoxFit.fill,
           ),
         ],

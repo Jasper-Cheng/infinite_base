@@ -14,8 +14,7 @@ typedef SuccessCallback<T> = Future<void> Function(SuccessEntity);
 
 class NetWorkUtil{
   NetWorkUtil._internal();
-  factory NetWorkUtil() => instance;
-  static final NetWorkUtil instance = NetWorkUtil._internal();
+  factory NetWorkUtil() => NetWorkUtil._internal();
 
   //options normal configure
   static const int sendTimeout = 10000;

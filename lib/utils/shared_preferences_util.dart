@@ -4,8 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferencesUtil{
 
   SharedPreferencesUtil._internal();
-  factory SharedPreferencesUtil() => instance;
-  static final SharedPreferencesUtil instance = SharedPreferencesUtil._internal();
+  factory SharedPreferencesUtil() => SharedPreferencesUtil._internal();
 
   late SharedPreferences _sharedPreferences;
 
@@ -29,7 +28,7 @@ class SharedPreferencesUtil{
   }
 
 
-  String? getString(String key, {String? defValue}) {
+  String? getString(String key, {String defValue=""}) {
     return _sharedPreferences.getString(key) ?? defValue;
   }
 

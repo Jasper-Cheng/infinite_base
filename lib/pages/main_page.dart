@@ -22,7 +22,7 @@ class MainPageState extends BasePageState<MainPage> {
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        body: _controller.childWidgets[_controller.currentIndex],
+        body: _buildBodyView(),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _controller.currentIndex,
           items: const <BottomNavigationBarItem>[
@@ -34,6 +34,13 @@ class MainPageState extends BasePageState<MainPage> {
           },
         ),
       ).addBackIntercept(_controller.exitApp),
+    );
+  }
+
+  Widget _buildBodyView() {
+    return IndexedStack(
+      index: _controller.currentIndex,
+      children: _controller.childWidgets,
     );
   }
 

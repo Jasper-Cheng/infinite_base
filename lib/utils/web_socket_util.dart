@@ -4,8 +4,7 @@ import '../observers/my_ws_listener.dart';
 
 class WebSocketUtil{
   WebSocketUtil._internal();
-  factory WebSocketUtil() => instance;
-  static final WebSocketUtil instance = WebSocketUtil._internal();
+  factory WebSocketUtil() => WebSocketUtil._internal();
 
   String? wsUrl;
   OnWebSocketListener? onWebSocketListener;

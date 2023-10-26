@@ -25,7 +25,7 @@ class MyPageController extends BaseController{
     data["url"]="https://url.cn/59WAm1B";
     // FormData formData = FormData.fromMap(data);
     EasyLoading.show(status: 'loading...');
-    await NetWorkUtil.instance.request<UserModel>(
+    await NetWorkUtil().request<UserModel>(
         Method.GET,
         UrlConfig.getMyWife,
         queryData: data,

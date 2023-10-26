@@ -1,3 +1,5 @@
+import 'package:infinite_base/configs/app_config.dart';
+import 'package:infinite_base/configs/theme_config.dart';
 import 'package:infinite_base/configs/url_config.dart';
 import 'package:infinite_base/utils/toast_util.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -6,6 +8,7 @@ import '../../observers/my_ws_listener.dart';
 import '../../utils/log_util.dart';
 import '../../utils/network_util.dart';
 import '../../utils/shared_preferences_util.dart';
+import '../../utils/theme_util.dart';
 import '../../utils/web_socket_util.dart';
 
 class ApplicationController{
@@ -18,9 +21,10 @@ class ApplicationController{
 
   Future<void> init() async {
     packageInfo = await PackageInfo.fromPlatform();
-    WebSocketUtil.instance.init(UrlConfig.ws_url, MyWsListener());
-    NetWorkUtil.instance.initDio();
-    SharedPreferencesUtil.instance.init();
+    await SharedPreferencesUtil().init();
+    AppConfig.isOpenWebSocketLongConnect?WebSocketUtil().init(UrlConfig.ws_url, MyWsListener()):null;
+    NetWorkUtil().initDio();
+    ThemeUtil().init(ThemeConfig.map);
     checkBasePermission();
   }
 

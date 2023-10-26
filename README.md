@@ -8,7 +8,7 @@ TODO List:
 2.网络框架  OK
 3.数据model  OK
 4.websocket封装   OK
-5.字体适配(Dimens、多级字体大小选择、字体风格)
+5.字体适配、字体风格  OK
 6.全局widget封装(text、image、button、icon、search、dialog、toolbar、input、choose、上拉刷新)
 7.route之间跳转传参   OK
 8.shared_preferences OK

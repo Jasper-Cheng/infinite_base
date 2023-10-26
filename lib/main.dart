@@ -3,7 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:infinite_base/configs/app_config.dart';
+import 'package:infinite_base/configs/key_config.dart';
 import 'package:infinite_base/configs/route_config.dart';
+import 'package:infinite_base/utils/shared_preferences_util.dart';
+import 'package:infinite_base/utils/theme_util.dart';
+
+import 'controllers/extra/application_controller.dart';
 
 //打包release apk
 //flutter build apk --release --no-tree-shake-icons --no-sound-null-safety
@@ -43,17 +50,34 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      // localizationsDelegates: const [
-      //   S.delegate,
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   GlobalCupertinoLocalizations.delegate,
-      // ],
-      // supportedLocales: S.delegate.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      routerConfig: RouteConfig.router,
-      builder: EasyLoading.init(),
+    return ScreenUtilInit(
+      designSize: AppConfig.designWidthHeightDraft,
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context,child){
+        return FutureBuilder(
+          future: ApplicationController().init(),
+          builder: (context, snapshot){
+            if(snapshot.connectionState == ConnectionState.done&&!snapshot.hasError){
+              return MaterialApp.router(
+                theme: ThemeUtil().getCurrentThemeData(""),
+                // localizationsDelegates: const [
+                //   S.delegate,
+                //   GlobalMaterialLocalizations.delegate,
+                //   GlobalWidgetsLocalizations.delegate,
+                //   GlobalCupertinoLocalizations.delegate,
+                // ],
+                // supportedLocales: S.delegate.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                routerConfig: RouteConfig.router,
+                builder: EasyLoading.init(),
+              );
+            }else{
+              return Container();
+            }
+          },
+        );
+      },
     );
   }
 }
