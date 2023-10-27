@@ -5,10 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infinite_base/configs/app_config.dart';
-import 'package:infinite_base/configs/key_config.dart';
 import 'package:infinite_base/configs/route_config.dart';
-import 'package:infinite_base/utils/shared_preferences_util.dart';
-import 'package:infinite_base/utils/theme_util.dart';
+import 'package:provider/provider.dart';
 
 import 'controllers/extra/application_controller.dart';
 
@@ -42,7 +40,14 @@ void main() {
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
-  runApp(const MyApp());
+  runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => ApplicationController())
+        ],
+        child: const MyApp(),
+      )
+  );
 
 }
 
@@ -60,7 +65,7 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot){
             if(snapshot.connectionState == ConnectionState.done&&!snapshot.hasError){
               return MaterialApp.router(
-                theme: ThemeUtil().getCurrentThemeData(""),
+                theme: Provider.of<ApplicationController>(context).getCurrentTheme(),
                 // localizationsDelegates: const [
                 //   S.delegate,
                 //   GlobalMaterialLocalizations.delegate,

@@ -5,7 +5,7 @@ import 'package:infinite_base/pages/main_page.dart';
 import 'package:infinite_base/pages/splash_page.dart';
 import 'package:infinite_base/bases/bundle.dart';
 
-import '../observers/my_navigator_observer.dart';
+import '../listener/my_navigator_observer.dart';
 import 'key_config.dart';
 
 class RouteConfig{

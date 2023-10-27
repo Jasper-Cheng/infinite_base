@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:web_socket_channel/io.dart';
-import '../observers/my_ws_listener.dart';
+
+import '../listener/my_ws_listener.dart';
 
 class WebSocketUtil{
   WebSocketUtil._internal();
-  factory WebSocketUtil() => WebSocketUtil._internal();
+  factory WebSocketUtil() => _instance;
+  static final WebSocketUtil _instance = WebSocketUtil._internal();
 
   String? wsUrl;
   OnWebSocketListener? onWebSocketListener;

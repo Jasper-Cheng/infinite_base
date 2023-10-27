@@ -14,7 +14,8 @@ typedef SuccessCallback<T> = Future<void> Function(SuccessEntity);
 
 class NetWorkUtil{
   NetWorkUtil._internal();
-  factory NetWorkUtil() => NetWorkUtil._internal();
+  factory NetWorkUtil() => _instance;
+  static final NetWorkUtil _instance = NetWorkUtil._internal();
 
   //options normal configure
   static const int sendTimeout = 10000;
@@ -38,7 +39,7 @@ class NetWorkUtil{
 
   void initDio() {
     Map<String, String> headers = {};
-    headers["app-version"] = ApplicationController.instance.packageInfo.version;
+    headers["app-version"] = ApplicationController().packageInfo?.version??"0.0.0";
     headers["os"] = Platform.operatingSystem;
     final options = BaseOptions(
       baseUrl: UrlConfig.getUrl(),

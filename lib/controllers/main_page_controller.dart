@@ -3,7 +3,6 @@ import 'package:infinite_base/configs/key_config.dart';
 import 'package:infinite_base/bases/bundle.dart';
 import '../pages/views/home_page.dart';
 import '../pages/views/my_page.dart';
-import '../utils/shared_preferences_util.dart';
 import '../utils/toast_util.dart';
 import '../bases/base_controller.dart';
 

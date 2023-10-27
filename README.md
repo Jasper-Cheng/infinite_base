@@ -15,5 +15,6 @@ TODO List:
 9.route之间跳转callback  OK
 10.flutter_easyloading、还有notifyListeners()不刷新的问题)  OK
 11.应用崩溃上报处理 ( google控制台打不开,暂时不接入)
-12.主题适配(白天、黑夜)
+12.主题适配(白天、黑夜)、切换主题等  OK
 13.微信、QQ登录 支付
+15.route之间的远程更新

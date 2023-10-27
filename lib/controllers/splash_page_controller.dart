@@ -10,9 +10,7 @@ class SplashPageController extends BaseController{
   @override
   void initController(State<StatefulWidget> state,Bundle? bundle) {
     postFrameCallback((callback) {
-      Future.delayed(const Duration(seconds: 2),(){
-        jumpToLoginWidget();
-      });
+      jumpToLoginWidget();
     });
   }
 

@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
+import 'package:infinite_base/controllers/extra/application_controller.dart';
 
 import '../configs/key_config.dart';
 import '../utils/log_util.dart';
-import '../utils/shared_preferences_util.dart';
 class CustomInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // LogUtil.d('CustomInterceptor-onRequest url:${options.path}');
-    String? token = SharedPreferencesUtil().getString(KeyConfig.user_token_key);
+    String? token = ApplicationController().sharedPreferences?.getString(KeyConfig.user_token_key);
     if (token != null) {
       options.headers["token"] = token;
       LogUtil.d('options.headers["token"]=$token}');
