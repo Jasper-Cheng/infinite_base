@@ -7,6 +7,7 @@ import 'package:infinite_base/models/user_model.dart';
 import 'package:infinite_base/network/method.dart';
 import 'package:infinite_base/utils/log_util.dart';
 import 'package:infinite_base/utils/network_util.dart';
+import 'package:infinite_base/utils/notification_util.dart';
 import 'package:infinite_base/utils/toast_util.dart';
 
 import '../../bases/bundle.dart';
@@ -39,6 +40,10 @@ class MyPageController extends BaseController{
     );
     EasyLoading.dismiss();
     notifyListeners();
+  }
+
+  void createNotification(){
+    NotificationUtil().showNotification(title: "jasper", body: "I'm testing notification");
   }
 
 }

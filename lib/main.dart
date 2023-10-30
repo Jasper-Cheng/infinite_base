@@ -32,7 +32,7 @@ import 'controllers/extra/application_controller.dart';
 //apksigner sign --ks ./android/app/签名.keystore --ks-key-alias zhijia  --out  ./build/app/outputs/flutter-apk/renew_signed.apk  ./build/app/outputs/flutter-apk/aligned.apk
 
 void main() {
-  //app在运行应用程序之前先与 Flutter Engine 进行通信
+  //用于确保Flutter的Widgets绑定已经初始化
   WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isAndroid) {
     //透明状态栏

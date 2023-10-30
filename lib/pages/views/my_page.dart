@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infinite_base/bases/base_controller.dart';
 import 'package:infinite_base/bases/base_page.dart';
 
@@ -30,6 +31,13 @@ class MyPageState extends BasePageState<MyPage> {
                 },
               ),
               Text("${_controller.userModel?.result}"),
+              Container(height: 20.h,),
+              GestureDetector(
+                child: Text("notification"),
+                onTap: (){
+                  _controller.createNotification();
+                },
+              ),
             ],
           ),
         ),

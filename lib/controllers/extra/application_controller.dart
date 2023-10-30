@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:infinite_base/configs/app_config.dart';
 import 'package:infinite_base/configs/theme_config.dart';
 import 'package:infinite_base/configs/url_config.dart';
+import 'package:infinite_base/utils/notification_util.dart';
 import 'package:infinite_base/utils/toast_util.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -26,9 +27,10 @@ class ApplicationController with ChangeNotifier{
   Future<void> init() async {
     packageInfo = await PackageInfo.fromPlatform();
     sharedPreferences = await SharedPreferences.getInstance();
+    await NotificationUtil().initialize();
     AppConfig.isOpenWebSocketLongConnect?WebSocketUtil().init(UrlConfig.ws_url, MyWsListener()):null;
     NetWorkUtil().initDio();
-    checkBasePermission();
+    // checkBasePermission();
   }
 
   //申请基本的静态权限
