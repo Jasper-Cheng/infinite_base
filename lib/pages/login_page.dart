@@ -5,7 +5,6 @@ import 'package:infinite_base/bases/base_controller.dart';
 import 'package:infinite_base/bases/base_page.dart';
 import 'package:infinite_base/controllers/extra/application_controller.dart';
 
-import '../configs/key_config.dart';
 import '../configs/theme_config.dart';
 import '../controllers/login_page_controller.dart';
 
@@ -27,7 +26,7 @@ class LoginPageState extends BasePageState<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
-              child:Text("loginPage"),
+              child:Text(_controller.centerText),
               onTap: (){
                 _controller.jumpToMainWidget();
               },

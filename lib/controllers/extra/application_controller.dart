@@ -6,6 +6,7 @@ import 'package:infinite_base/utils/toast_util.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../bases/base_page.dart';
 import '../../configs/key_config.dart';
 import '../../listener/my_ws_listener.dart';
 import '../../utils/log_util.dart';
@@ -20,6 +21,7 @@ class ApplicationController with ChangeNotifier{
 
   PackageInfo? packageInfo;
   SharedPreferences? sharedPreferences;
+  final List<BasePageState> pageList = [];
 
   Future<void> init() async {
     packageInfo = await PackageInfo.fromPlatform();
@@ -50,4 +52,21 @@ class ApplicationController with ChangeNotifier{
     sharedPreferences?.setString(KeyConfig.theme_model_key, theme);
     notifyListeners();
   }
+
+  void addPage(BasePageState basePageState){
+    pageList.add(basePageState);
+  }
+  void removePage(BasePageState basePageState){
+    pageList.remove(basePageState);
+  }
+  T? getTargetPage<T extends BasePageState>() {
+    T? targetPage;
+    for (var element in pageList) {
+      if (element is T) {
+        targetPage = element;
+      }
+    }
+    return targetPage;
+  }
+
 }

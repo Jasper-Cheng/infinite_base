@@ -8,6 +8,7 @@ import '../configs/route_config.dart';
 import '../bases/bundle.dart';
 
 class LoginPageController extends BaseController{
+  String centerText="loginPage";
 
   @override
   void initController(State<StatefulWidget> state,Bundle? bundle) {
@@ -21,6 +22,11 @@ class LoginPageController extends BaseController{
     bundle.putString(KeyConfig.map_common_key, "I'm login,nice to meet you!");
     Object? object=await context.push(RoutePath.main,extra: bundle);
     ToastUtil.showToast("object=${object.toString()}");
+  }
+
+  void updateText(String text){
+    centerText=text;
+    notifyListeners();
   }
 
 }

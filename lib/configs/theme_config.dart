@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'app_config.dart';
 
 class ThemeConfig{
+  static String defaultFontStyle="AlimamaDongFangDaKai";//["AlimamaDaoLiTi","AlimamaDongFangDaKai","AlimamaFangYuanTiVF"]
   static Map<String,ThemeData> map={
     "LIGHT":ThemeData(
       brightness: Brightness.light,
-      fontFamily: AppConfig.defaultFontStyle,
+      fontFamily: defaultFontStyle,
     ),
     "DARK":ThemeData(
       brightness: Brightness.dark,
-      fontFamily: AppConfig.defaultFontStyle,
+      fontFamily: defaultFontStyle,
     )
   };
 }

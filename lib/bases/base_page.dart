@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_base/bases/bundle.dart';
+import 'package:infinite_base/controllers/extra/application_controller.dart';
 import 'package:provider/provider.dart';
 
 import 'base_controller.dart';
@@ -18,6 +19,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> with WidgetsBi
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
+    ApplicationController().addPage(this);
     baseController = initController();
     if (baseController != null) {
       baseController!.context = context;
