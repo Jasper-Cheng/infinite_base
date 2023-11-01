@@ -13,7 +13,7 @@ class RouteConfig{
     initialLocation: RoutePath.splash,
     errorBuilder: (context, state){
       Bundle bundle=Bundle();
-      bundle.putObject(KeyConfig.map_error_key, state.error);
+      bundle.putObject(KeyConfig.route_error_key, state.error);
       return ErrorPage(bundle);
     },
     observers: [

@@ -19,7 +19,7 @@ class LoginPageController extends BaseController{
 
   Future<void> jumpToMainWidget() async {
     Bundle bundle = Bundle();
-    bundle.putString(KeyConfig.map_common_key, "I'm login,nice to meet you!");
+    bundle.putString(KeyConfig.app_common_key, "I'm login,nice to meet you!");
     Object? object=await context.push(RoutePath.main,extra: bundle);
     ToastUtil.showToast("object=${object.toString()}");
   }

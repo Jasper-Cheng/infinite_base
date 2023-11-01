@@ -9,7 +9,7 @@ class ErrorPageController extends BaseController{
   GoException? goException;
   @override
   void initController(State<StatefulWidget> state,Bundle? bundle) {
-    goException=bundle?.getObject(KeyConfig.map_error_key);
+    goException=bundle?.getObject(KeyConfig.route_error_key);
     LogUtil.e("ErrorPage-GoException.message=${goException?.message}");
     postFrameCallback((callback) {
 
