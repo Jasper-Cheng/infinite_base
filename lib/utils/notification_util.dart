@@ -13,6 +13,11 @@ class NotificationUtil {
   // FlutterLocalNotificationsPlugin是一个用于处理本地通知的插件，它提供了在Flutter应用程序中发送和接收本地通知的功能。
   final FlutterLocalNotificationsPlugin _notificationsPlugin = FlutterLocalNotificationsPlugin();
 
+  String channelId="1";
+  String channelName="Jasper";
+  String channelDescription="test notification description";
+  String ticker="ticker";
+
   // 初始化函数
   Future<void> initialize() async {
     // AndroidInitializationSettings是一个用于设置Android上的本地通知初始化的类
@@ -52,6 +57,7 @@ class NotificationUtil {
           AndroidFlutterLocalNotificationsPlugin>();
       return await androidImplementation?.requestNotificationsPermission();
     }
+    return null;
   }
 
 //  显示通知
@@ -68,12 +74,12 @@ class NotificationUtil {
     // Importance.max：用于指定通知的重要性，设置为最高级别。
     // Priority.high：用于指定通知的优先级，设置为高优先级。
     // 'ticker'：用于指定通知的提示文本，即通知出现在通知中心的文本内容。
-    const AndroidNotificationDetails androidNotificationDetails =
-    AndroidNotificationDetails('your.channel.id', 'your channel name',
-        channelDescription: 'your channel description',
+    AndroidNotificationDetails androidNotificationDetails =
+    AndroidNotificationDetails(channelId,channelName,
+        channelDescription: channelDescription,
         importance: Importance.max,
         priority: Priority.high,
-        ticker: 'ticker');
+        ticker: ticker);
 
     // ios的通知
     const String darwinNotificationCategoryPlain = 'plainCategory';
@@ -82,7 +88,7 @@ class NotificationUtil {
       categoryIdentifier: darwinNotificationCategoryPlain, // 通知分类
     );
     // 创建跨平台通知
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(android: androidNotificationDetails,iOS: iosNotificationDetails);
+    NotificationDetails platformChannelSpecifics = NotificationDetails(android: androidNotificationDetails,iOS: iosNotificationDetails);
 
     // 发起一个通知
     await _notificationsPlugin.show(
