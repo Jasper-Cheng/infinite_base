@@ -25,7 +25,7 @@ class SplashPageController extends BaseController{
   }
 
   void checkGuide() {
-    hadGuide=ApplicationController().sharedPreferences?.getBool(KeyConfig.guide_page_key);
+    hadGuide=ApplicationController().sharedPreferences?.getBool(KeyConfig.guide_page_key)??false;
     LogUtil.d("hadGuide $hadGuide");
     if(hadGuide==true){
       countDownTimer=Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -41,7 +41,7 @@ class SplashPageController extends BaseController{
   }
 
   void jumpToLoginWidget(){
-    ApplicationController().sharedPreferences?.setBool(KeyConfig.guide_page_key, hadGuide??false);
+    ApplicationController().sharedPreferences?.setBool(KeyConfig.guide_page_key, true);
     context.go(RoutePath.login);
   }
 

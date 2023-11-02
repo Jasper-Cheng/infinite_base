@@ -9,6 +9,7 @@ import '../bases/bundle.dart';
 
 class LoginPageController extends BaseController{
   String centerText="loginPage";
+  TextEditingController textEditingController=TextEditingController();
 
   @override
   void initController(State<StatefulWidget> state,Bundle? bundle) {
