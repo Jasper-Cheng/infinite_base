@@ -49,6 +49,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> with WidgetsBi
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    ApplicationController().removePage(this);
     super.dispose();
   }
 
