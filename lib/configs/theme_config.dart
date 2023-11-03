@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ThemeConfig{
-  static String defaultFontStyle="AlimamaDongFangDaKai";//["AlimamaDaoLiTi","AlimamaDongFangDaKai","AlimamaFangYuanTiVF"]
+  static String defaultFontStyle="SourceHanSerifCN";
   static Map<String,ThemeData> map={
     "LIGHT":ThemeData(
       brightness: Brightness.light,

@@ -56,15 +56,15 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: AlimamaDongFangDaKai
+    - family: SourceHanSerifCN
       fonts:
-        - asset: assets/fonts/AlimamaDongFangDaKai-Regular.ttf
-    - family: AlimamaDaoLiTi
-      fonts:
-        - asset: assets/fonts/AlimamaDaoLiTi.ttf
-    - family: AlimamaFangYuanTiVF
-      fonts:
-        - asset: assets/fonts/AlimamaFangYuanTiVF-Thin.ttf
+        - asset: assets/fonts/SourceHanSerifCN-Bold.otf
+        - asset: assets/fonts/SourceHanSerifCN-ExtraLight.otf
+        - asset: assets/fonts/SourceHanSerifCN-Heavy.otf
+        - asset: assets/fonts/SourceHanSerifCN-Light.otf
+        - asset: assets/fonts/SourceHanSerifCN-Medium.otf
+        - asset: assets/fonts/SourceHanSerifCN-Regular.otf
+        - asset: assets/fonts/SourceHanSerifCN-SemiBold.otf
 
   assets:
     - assets/

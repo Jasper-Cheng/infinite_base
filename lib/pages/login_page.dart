@@ -37,27 +37,70 @@ class LoginPageState extends BasePageState<LoginPage> {
               width: 200.w,
               fit: BoxFit.fill,
             ),
-            TextField(
-              controller: _controller.textEditingController,
-              style: TextStyle(
-                  fontSize: 16.sp,),
-              decoration: InputDecoration(
-                hintStyle: TextStyle(
-                    color: const Color(0xFF1C1F23),
-                    fontSize: 16.sp,
-                    textBaseline: TextBaseline.alphabetic),
-                hintText: "请输入用户号/手机号",
-                prefixIcon: Image.asset(
-                  AssetImageConfig.login_account_unselect,
-                ),
-                // prefixIconConstraints: BoxConstraints(
-                //   minWidth: 24.w,
-                //   minHeight: 24.w,
-                //   maxWidth: 24.w,
-                //   maxHeight: 24.w
-                // ),
-              ),
+            Container(
+              height: 30.h,
             ),
+            Column(
+              children: [
+                TextField(
+                  controller: _controller.usernameTextEditingController,
+                    style: TextStyle(fontSize: 16.sp,),
+                    decoration: InputDecoration(
+                        border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15.w)),
+                        ),
+                        hintStyle: TextStyle(
+                          color: const Color(0x4C1C1F23),
+                          fontSize: 14.sp,),
+                        hintText: "请输入用户号/手机号",
+                        prefixIcon: Icon(Icons.person_outline,size: 20.w),
+                    ),
+                  onChanged: _controller.updateUserName
+                ),
+                Container(
+                  height: 12.h,
+                ),
+                TextField(
+                  controller: _controller.passwordTextEditingController,
+                    style: TextStyle(fontSize: 16.sp,),
+                    obscureText: !_controller.eyeOpen,
+                    decoration: InputDecoration(
+                        border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15.w)),
+                        ),
+                        hintStyle: TextStyle(
+                          color: const Color(0x4C1C1F23),
+                          fontSize: 14.sp,),
+                        hintText: "请输入密码",
+                        prefixIcon: Icon(Icons.lock_outline,size: 20.w),
+                      suffixIcon: GestureDetector(
+                        onTap: _controller.updateEye,
+                        child: _controller.eyeOpen?Icon(Icons.visibility_outlined,size: 16.w):Icon(Icons.visibility_off_outlined,size: 16.w)
+                      )
+                    ),
+                  onChanged: _controller.updatePassword,
+                ),
+              ],
+            ),
+            Container(
+              height: 30.h,
+            ),
+            MaterialButton(
+              minWidth: ScreenUtil().screenWidth-50.w,
+              height: 38.h,
+              shape: RoundedRectangleBorder(
+                side: BorderSide.none,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(100.r),
+                ),
+              ),
+              disabledElevation: 6,
+              elevation: 6,
+              color: const Color(0xFF0077FA),
+              disabledColor: const Color(0xFF98CDFD),
+              onPressed: _controller.username.isNotEmpty&&_controller.password.isNotEmpty?_controller.doLogin:null,
+              child: Text("登录",style: TextStyle(color: Colors.white,fontSize: 16.sp,fontWeight: FontWeight.w400),),
+            )
           ],
         ),
       ),

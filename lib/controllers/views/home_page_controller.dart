@@ -11,7 +11,7 @@ class HomePageController extends BaseController{
   @override
   void initController(State<StatefulWidget> state,Bundle? bundle) {
     postFrameCallback((callback) {
-      (ApplicationController().getTargetPage<LoginPageState>()?.baseController as LoginPageController).updateText("I'm HomePageController,I changed you.");
+      // (ApplicationController().getTargetPage<LoginPageState>()?.baseController as LoginPageController).updateText("I'm HomePageController,I changed you.");
     });
   }
 
