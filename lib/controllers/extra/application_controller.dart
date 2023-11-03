@@ -24,12 +24,13 @@ class ApplicationController with ChangeNotifier{
   SharedPreferences? sharedPreferences;
   final List<BasePageState> pageList = [];
 
-  Future<void> init() async {
+  Future<bool> init() async {
     packageInfo = await PackageInfo.fromPlatform();
     sharedPreferences = await SharedPreferences.getInstance();
     await NotificationUtil().initialize();
     AppConfig.isOpenWebSocketLongConnect?WebSocketUtil().init(UrlConfig.ws_url, MyWsListener()):null;
     NetWorkUtil().initDio();
+    return true;
     // checkBasePermission();
   }
 

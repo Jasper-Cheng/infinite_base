@@ -55,16 +55,15 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: AppConfig.designWidthHeightDraft,
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context,child){
-        return FutureBuilder(
-          future: ApplicationController().init(),
-          builder: (context, snapshot){
-            if(snapshot.connectionState == ConnectionState.done&&!snapshot.hasError){
-              return MaterialApp.router(
+    return FutureBuilder<bool>(
+      future: ApplicationController().init(),
+      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+        if(snapshot.hasData){
+          return ScreenUtilInit(
+              designSize: AppConfig.designWidthHeightDraft,
+              minTextAdapt: true,
+              splitScreenMode: true,
+              child: MaterialApp.router(
                 theme: Provider.of<ApplicationController>(context).getCurrentTheme(),
                 // localizationsDelegates: const [
                 //   S.delegate,
@@ -76,13 +75,42 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 routerConfig: RouteConfig.router,
                 builder: EasyLoading.init(),
-              );
-            }else{
-              return Container();
-            }
-          },
-        );
+              )
+          );
+        }else{
+          return Container();
+        }
       },
     );
+
+    // return ScreenUtilInit(
+    //   designSize: AppConfig.designWidthHeightDraft,
+    //   minTextAdapt: true,
+    //   splitScreenMode: true,
+    //   builder: (context,child){
+    //     return FutureBuilder(
+    //       future: ApplicationController().init(),
+    //       builder: (context, snapshot){
+    //         if(snapshot.connectionState == ConnectionState.done&&!snapshot.hasError){
+    //           return MaterialApp.router(
+    //             theme: Provider.of<ApplicationController>(context).getCurrentTheme(),
+    //             // localizationsDelegates: const [
+    //             //   S.delegate,
+    //             //   GlobalMaterialLocalizations.delegate,
+    //             //   GlobalWidgetsLocalizations.delegate,
+    //             //   GlobalCupertinoLocalizations.delegate,
+    //             // ],
+    //             // supportedLocales: S.delegate.supportedLocales,
+    //             debugShowCheckedModeBanner: false,
+    //             routerConfig: RouteConfig.router,
+    //             builder: EasyLoading.init(),
+    //           );
+    //         }else{
+    //           return Container();
+    //         }
+    //       },
+    //     );
+    //   },
+    // );
   }
 }

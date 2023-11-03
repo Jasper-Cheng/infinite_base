@@ -26,8 +26,8 @@ class SplashPageState extends BasePageState<SplashPage> {
   Widget buildViews(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: Visibility(
-        visible: _controller.hadGuide!=null,
+      body: Opacity(
+        opacity : _controller.hadGuide==null?0.0:1.0,
         child: _controller.hadGuide==false?PageView(
           controller: _controller.pageController,
           scrollDirection : Axis.horizontal,

@@ -39,7 +39,6 @@ class LoginPageState extends BasePageState<LoginPage> {
             ),
             TextField(
               controller: _controller.textEditingController,
-              autofocus: true,
               style: TextStyle(
                   fontSize: 16.sp,),
               decoration: InputDecoration(

@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:infinite_base/bases/base_controller.dart';
 import 'package:infinite_base/configs/key_config.dart';
 import 'package:infinite_base/controllers/extra/application_controller.dart';
-import 'package:infinite_base/utils/log_util.dart';
 
 import '../configs/route_config.dart';
 import '../bases/bundle.dart';
@@ -26,7 +25,6 @@ class SplashPageController extends BaseController{
 
   void checkGuide() {
     hadGuide=ApplicationController().sharedPreferences?.getBool(KeyConfig.guide_page_key)??false;
-    LogUtil.d("hadGuide $hadGuide");
     if(hadGuide==true){
       countDownTimer=Timer.periodic(const Duration(seconds: 1), (timer) {
         countDown--;
@@ -40,9 +38,9 @@ class SplashPageController extends BaseController{
     notifyListeners();
   }
 
-  void jumpToLoginWidget(){
-    ApplicationController().sharedPreferences?.setBool(KeyConfig.guide_page_key, true);
+  Future<void> jumpToLoginWidget() async {
     context.go(RoutePath.login);
+    ApplicationController().sharedPreferences?.setBool(KeyConfig.guide_page_key, true);
   }
 
   @override
