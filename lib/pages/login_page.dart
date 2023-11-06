@@ -28,7 +28,7 @@ class LoginPageState extends BasePageState<LoginPage> {
 
   Widget _buildBodyView(){
     return Container(
-      padding: EdgeInsets.only(top: 80.h,left: 20.w,right: 20.w,bottom: 20.h),
+      padding: EdgeInsets.only(top: 80.h,left: 10.w,right: 10.w,bottom: 20.h),
       child: SingleChildScrollView(
         child: Column(
           children: [

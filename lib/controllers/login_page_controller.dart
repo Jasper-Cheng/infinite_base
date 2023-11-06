@@ -25,22 +25,23 @@ class LoginPageController extends BaseController{
     });
   }
 
-  void jumpToMainPage() async {
+  void pushToMainPage() async {
+    EasyLoading.dismiss();
     Bundle bundle = Bundle();
     bundle.putString(KeyConfig.app_common_key, "I'm login,nice to meet you!");
     context.push(RoutePath.main,extra: bundle);
   }
 
   void jumpToRegisterPage() async {
-    Bundle bundle = Bundle();
-    bundle.putString(KeyConfig.app_common_key, "I'm login,nice to meet you!");
-    context.push(RoutePath.register,extra: bundle);
+    // Bundle bundle = Bundle();
+    // bundle.putString(KeyConfig.app_common_key, "I'm login,nice to meet you!");
+    context.push(RoutePath.register);
   }
 
   void doLogin(){
     EasyLoading.show(status: "正在登录");
     Timer(const Duration(seconds: 1), () {
-      jumpToMainPage();
+      pushToMainPage();
     });
   }
 
