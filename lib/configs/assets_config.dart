@@ -11,4 +11,8 @@ class AssetImageConfig {
   static const String arrow_left_line="assets/images/arrow_left_line.png";
   static const String login_account_select="assets/images/login_account_select.png";
   static const String login_account_unselect="assets/images/login_account_unselect.png";
+  static const String Wechat="assets/images/Wechat.png";
+  static const String Weibo="assets/images/Weibo.png";
+  static const String QQ="assets/images/QQ.png";
+  static const String Apple="assets/images/Apple.png";
 }

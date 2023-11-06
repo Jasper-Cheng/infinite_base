@@ -7,7 +7,7 @@ import 'package:infinite_base/bases/base_page.dart';
 import '../controllers/splash_page_controller.dart';
 
 class SplashPage extends BasePage {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key,bundle}) : super(bundle: bundle);
 
   @override
   State<SplashPage> createState() => SplashPageState();

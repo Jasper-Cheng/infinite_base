@@ -7,7 +7,7 @@ import 'package:infinite_base/extension/widget_extension.dart';
 import '../bases/base_page.dart';
 
 class MainPage extends BasePage {
-  const MainPage(bundle, {super.key}) : super(bundle: bundle);
+  const MainPage({super.key,bundle}) : super(bundle: bundle);
 
   @override
   State<MainPage> createState() => MainPageState();

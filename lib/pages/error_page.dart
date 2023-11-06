@@ -6,7 +6,8 @@ import 'package:infinite_base/bases/base_page.dart';
 import '../controllers/error_page_controller.dart';
 
 class ErrorPage extends BasePage {
-  const ErrorPage(bundle, {super.key}) : super(bundle: bundle);
+  const ErrorPage({super.key,bundle}) : super(bundle: bundle);
+
 
   @override
   State<ErrorPage> createState() => ErrorPageState();

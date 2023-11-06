@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:infinite_base/pages/error_page.dart';
 import 'package:infinite_base/pages/login_page.dart';
 import 'package:infinite_base/pages/main_page.dart';
+import 'package:infinite_base/pages/register_page.dart';
 import 'package:infinite_base/pages/splash_page.dart';
 import 'package:infinite_base/bases/bundle.dart';
 
@@ -14,7 +15,7 @@ class RouteConfig{
     errorBuilder: (context, state){
       Bundle bundle=Bundle();
       bundle.putObject(KeyConfig.route_error_key, state.error);
-      return ErrorPage(bundle);
+      return ErrorPage(bundle:bundle);
     },
     observers: [
       MyNavigatorObserver(),
@@ -33,7 +34,12 @@ class RouteConfig{
       //main-首页
       GoRoute(
         path: RoutePath.main,
-        builder: (context, state) => MainPage(state.extra),
+        builder: (context, state) => MainPage(bundle: state.extra),
+      ),
+      //register-注册页
+      GoRoute(
+        path: RoutePath.register,
+        builder: (context, state) => const RegisterPage(),
       )
     ],
   );
@@ -43,4 +49,5 @@ class RoutePath{
   static const String splash="/splash";
   static const String login="/login";
   static const String main="/main";
+  static const String register="/register";
 }

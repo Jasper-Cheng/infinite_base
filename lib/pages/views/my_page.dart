@@ -7,7 +7,7 @@ import 'package:infinite_base/bases/base_page.dart';
 import '../../controllers/views/my_page_controller.dart';
 
 class MyPage extends BasePage {
-  const MyPage({Key? key}) : super(key: key);
+  const MyPage({super.key,bundle}) : super(bundle: bundle);
 
   @override
   State<MyPage> createState() => MyPageState();

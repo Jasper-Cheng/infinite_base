@@ -7,7 +7,7 @@ import 'package:infinite_base/bases/base_page.dart';
 import '../../controllers/views/home_page_controller.dart';
 
 class HomePage extends BasePage {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key,bundle}) : super(bundle: bundle);
 
   @override
   State<HomePage> createState() => HomePageState();
