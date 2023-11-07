@@ -32,10 +32,14 @@ class LoginPageController extends BaseController{
     context.push(RoutePath.main,extra: bundle);
   }
 
-  void jumpToRegisterPage() async {
+  void pushToRegisterPage() async {
     // Bundle bundle = Bundle();
     // bundle.putString(KeyConfig.app_common_key, "I'm login,nice to meet you!");
     context.push(RoutePath.register);
+  }
+
+  void pushToForgetPasswordPage() async {
+    context.push(RoutePath.forgetPassword);
   }
 
   void doLogin(){

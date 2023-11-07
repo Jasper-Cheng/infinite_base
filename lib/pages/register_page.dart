@@ -20,7 +20,6 @@ class RegisterPageState extends BasePageState{
   @override
   Widget buildViews(BuildContext context) {
     return NormalToolbarView(
-        showLeadingView: true,
         body: _buildBodyView()
     );
   }
@@ -35,7 +34,7 @@ class RegisterPageState extends BasePageState{
               padding: EdgeInsets.only(left: 10.w,right: 10.w),
               alignment: Alignment.topLeft,
               child: Text(
-                "欢迎注册\n出租车APP账号！！！",
+                "欢迎注册\nMorningGo账号！！！",
                 style: TextStyle(
                     color: const Color(0xFF3295FB),
                     fontWeight: FontWeight.w800,

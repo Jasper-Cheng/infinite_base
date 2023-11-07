@@ -15,4 +15,7 @@ class AssetImageConfig {
   static const String Weibo="assets/images/Weibo.png";
   static const String QQ="assets/images/QQ.png";
   static const String Apple="assets/images/Apple.png";
+  static const String forgot_password_undraw="assets/images/forgot_password_undraw.png";
+  static const String forgot_password_select1="assets/images/forgot_password_select1.png";
+  static const String forgot_password_select2="assets/images/forgot_password_select2.png";
 }

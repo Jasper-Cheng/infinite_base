@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:infinite_base/pages/error_page.dart';
+import 'package:infinite_base/pages/forget_password_page.dart';
 import 'package:infinite_base/pages/login_page.dart';
 import 'package:infinite_base/pages/main_page.dart';
 import 'package:infinite_base/pages/register_page.dart';
@@ -40,6 +41,11 @@ class RouteConfig{
       GoRoute(
         path: RoutePath.register,
         builder: (context, state) => const RegisterPage(),
+      ),
+      //forget password-忘记密码页
+      GoRoute(
+        path: RoutePath.forgetPassword,
+        builder: (context, state) => const ForgetPasswordPage(),
       )
     ],
   );
@@ -50,4 +56,5 @@ class RoutePath{
   static const String login="/login";
   static const String main="/main";
   static const String register="/register";
+  static const String forgetPassword="/forgetPassword";
 }

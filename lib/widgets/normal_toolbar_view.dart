@@ -12,13 +12,11 @@ class NormalToolbarView extends StatelessWidget{
   final double? toolbarHeight;
   final bool showLeadingView;
   final Widget? leadingLeftWidget;
-  final Widget? leadingRightWidget;
   final Widget? leadingCenterWidget;
+  final Widget? leadingRightWidget;
   final Widget body;
   final VoidCallback? onBackClick;
-  final bool showLeadingLeftWidget;
-  final bool showLeadingCenterWidget;
-  final bool showLeadingRightWidget;
+  final bool showLeadingBack;
 
   const NormalToolbarView({Key? key,
     this.backgroundColor=Colors.transparent,
@@ -28,13 +26,11 @@ class NormalToolbarView extends StatelessWidget{
     this.toolbarHeight,
     this.showLeadingView=true,
     this.leadingRightWidget,
-    this.leadingLeftWidget,
     this.leadingCenterWidget,
+    this.leadingLeftWidget,
     required this.body,
     this.onBackClick,
-    this.showLeadingLeftWidget = true,
-    this.showLeadingCenterWidget = true,
-    this.showLeadingRightWidget = true
+    this.showLeadingBack = true,
   }) : super(key: key);
 
   @override
@@ -65,9 +61,9 @@ class NormalToolbarView extends StatelessWidget{
     return SizedBox(
       height: theToolbarHeight,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          showLeadingLeftWidget?leadingLeftWidget??GestureDetector(
+          showLeadingBack?GestureDetector(
             onTap: onBackClick??(){
               context.pop();
             },
@@ -75,15 +71,20 @@ class NormalToolbarView extends StatelessWidget{
               padding: EdgeInsets.only(left: 10.w),
               child: Image.asset(
                 AssetImageConfig.arrow_left_line,
-                width: 20.w,
+                width: 18.w,
                 fit: BoxFit.fill,
               ),
             ),
           ):Container(),
-          showLeadingCenterWidget?Expanded(
+          Expanded(
+            child: leadingLeftWidget??Container(),
+          ),
+          Expanded(
             child: leadingCenterWidget??Container(),
-          ):Container(),
-          showLeadingRightWidget?leadingRightWidget??Container():Container()
+          ),
+          Expanded(
+            child: leadingRightWidget??Container(),
+          ),
         ],
       ),
     );

@@ -117,12 +117,15 @@ class LoginPageState extends BasePageState<LoginPage> {
                       children: [
                         Expanded(
                           child: GestureDetector(
-                            onTap: _controller.jumpToRegisterPage,
+                            onTap: _controller.pushToRegisterPage,
                             child: Text("  注册",style: TextStyle(color: const Color(0xFF3295FB),fontSize: 12.sp),),
                           ),
                         ),
                         Expanded(
-                          child: Text("忘记密码?",textAlign: TextAlign.end,style: TextStyle(color: const Color(0xA51C1F23),fontSize: 12.sp)),
+                          child: GestureDetector(
+                              onTap: _controller.pushToForgetPasswordPage,
+                            child: Text("忘记密码?",textAlign: TextAlign.end,style: TextStyle(color: const Color(0xA51C1F23),fontSize: 12.sp)),
+                          )
                         )
                       ],
                     ),
