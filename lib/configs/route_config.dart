@@ -6,6 +6,7 @@ import 'package:infinite_base/pages/main_page.dart';
 import 'package:infinite_base/pages/register_page.dart';
 import 'package:infinite_base/pages/splash_page.dart';
 import 'package:infinite_base/bases/bundle.dart';
+import 'package:infinite_base/pages/verification_code_page.dart';
 
 import '../listener/my_navigator_observer.dart';
 import 'key_config.dart';
@@ -46,6 +47,11 @@ class RouteConfig{
       GoRoute(
         path: RoutePath.forgetPassword,
         builder: (context, state) => const ForgetPasswordPage(),
+      ),
+      //verification code-验证码页
+      GoRoute(
+        path: RoutePath.verificationCode,
+        builder: (context, state) => const VerificationPage(),
       )
     ],
   );
@@ -57,4 +63,5 @@ class RoutePath{
   static const String main="/main";
   static const String register="/register";
   static const String forgetPassword="/forgetPassword";
+  static const String verificationCode="/verificationCode";
 }
