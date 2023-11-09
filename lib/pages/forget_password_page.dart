@@ -20,12 +20,12 @@ class ForgetPasswordPageState extends BasePageState{
   @override
   Widget buildViews(BuildContext context) {
     return NormalToolbarView(
-      leadingLeftWidget: _buildLeftView(),
+      leadingLeftWidget: _buildLeadingView(),
       body: _buildBodyView(),
     );
   }
 
-  Widget _buildLeftView(){
+  Widget _buildLeadingView(){
     return Container(
       padding: EdgeInsets.only(left:6.w,bottom: 2.h),
       child: GestureDetector(
@@ -46,13 +46,13 @@ class ForgetPasswordPageState extends BasePageState{
 
   Widget _buildBodyView(){
     return Container(
-      padding: EdgeInsets.only(top: 30.h,left: 10.w,right: 10.w,bottom: 20.h),
+      padding: EdgeInsets.only(top: 30.h,left: 20.w,right: 20.w,bottom: 20.h),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 30.w),
+              padding: EdgeInsets.only(left: 20.w),
               child: Image.asset(
                 AssetImageConfig.forgot_password_undraw,
                 width: 200.w,
@@ -80,7 +80,6 @@ class ForgetPasswordPageState extends BasePageState{
                     _controller.updateSelectWay(1);
                   },
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5.w),
                     padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.w),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.r),
@@ -114,7 +113,6 @@ class ForgetPasswordPageState extends BasePageState{
                     _controller.updateSelectWay(2);
                   },
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5.w),
                     padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.w),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.r),

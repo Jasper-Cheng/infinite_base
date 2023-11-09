@@ -47,15 +47,35 @@ class RegisterPageController extends BaseController{
     notifyListeners();
   }
 
+  ///手机号验证
+  static bool isChinaPhoneLegal(String str) {
+    return RegExp(
+        r"^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$")
+        .hasMatch(str);
+  }
+
+  ///邮箱验证
+  static bool isEmail(String str) {
+    return RegExp(
+        r"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")
+        .hasMatch(str);
+  }
+
   void startTimerCount(){
-    if(canSend){
-      canSend=false;
-      updateTimerTip();
-      countDownTimer=Timer.periodic(const Duration(seconds: 1), (timer) {
+    if(isChinaPhoneLegal(username)||isEmail(username)){
+      if(canSend){
+        canSend=false;
         updateTimerTip();
-      });
-      notifyListeners();
+        countDownTimer=Timer.periodic(const Duration(seconds: 1), (timer) {
+          updateTimerTip();
+        });
+        notifyListeners();
+      }
+    }else{
+      ToastUtil.showToast("手机号或邮箱不符合规范哦");
+      return;
     }
+
   }
 
   void updateTimerTip(){
@@ -100,7 +120,6 @@ class RegisterPageController extends BaseController{
   void dispose() {
     countDownTimer?.cancel();
     super.dispose();
-
   }
 
 }

@@ -57,7 +57,7 @@ class RegisterPageState extends BasePageState{
                       hintStyle: TextStyle(
                         color: const Color(0x4C1C1F23),
                         fontSize: 14.sp,),
-                      hintText: "请输入用户号/手机号",
+                      hintText: "请输入手机号/邮箱",
                       prefixIcon: Icon(Icons.person_outline,size: 20.w),
                     ),
                     onChanged: _controller.updateUserName
