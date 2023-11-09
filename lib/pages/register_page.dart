@@ -69,7 +69,6 @@ class RegisterPageState extends BasePageState{
                   controller: _controller.verifyCodeTextEditingController,
                   keyboardType: TextInputType.number,
                   style: TextStyle(fontSize: 16.sp,),
-                  obscureText: !_controller.eyeOpen,
                   decoration: InputDecoration(
                       border: UnderlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.w)),

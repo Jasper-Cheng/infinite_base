@@ -2,9 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:go_router/go_router.dart';
 import 'package:infinite_base/bases/base_controller.dart';
 import 'package:infinite_base/bases/bundle.dart';
 import 'package:infinite_base/utils/toast_util.dart';
+
+import '../configs/route_config.dart';
 
 class VerificationCodePageController extends BaseController{
   String verificationCode="";
@@ -55,7 +58,7 @@ class VerificationCodePageController extends BaseController{
     Future.delayed(const Duration(milliseconds: 500),(){
       EasyLoading.dismiss();
       ToastUtil.showToast("验证成功!");
-      // context.push(RoutePath.verificationCode);
+      context.push(RoutePath.newPassword);
     });
   }
 

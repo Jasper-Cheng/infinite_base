@@ -19,12 +19,12 @@ class VerificationPageState extends BasePageState{
   @override
   Widget buildViews(BuildContext context) {
     return NormalToolbarView(
-      leadingLeftWidget: _buildLeftView(),
+      leadingLeftWidget: _buildLeadingView(),
       body: _buildBodyView(),
     );
   }
 
-  Widget _buildLeftView(){
+  Widget _buildLeadingView(){
     return Container(
       padding: EdgeInsets.only(left:6.w,bottom: 2.h),
       child: GestureDetector(

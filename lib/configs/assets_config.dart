@@ -18,4 +18,6 @@ class AssetImageConfig {
   static const String forgot_password_undraw="assets/images/forgot_password_undraw.png";
   static const String forgot_password_select1="assets/images/forgot_password_select1.png";
   static const String forgot_password_select2="assets/images/forgot_password_select2.png";
+  static const String new_password_header="assets/images/new_password_header.png";
+  static const String new_password_dialog_header="assets/images/new_password_dialog_header.png";
 }
