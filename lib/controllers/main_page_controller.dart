@@ -16,7 +16,6 @@ class MainPageController extends BaseController{
   @override
   void initController(State<StatefulWidget> state,Bundle? bundle) {
     who=bundle?.getString(KeyConfig.app_common_key);
-    ToastUtil.showToast("$who");
     postFrameCallback((duration) {
 
     });

@@ -39,7 +39,8 @@ class SplashPageController extends BaseController{
   }
 
   Future<void> jumpToLoginWidget() async {
-    context.go(RoutePath.login);
+    // context.go(RoutePath.login);
+    context.go(RoutePath.main);
     ApplicationController().sharedPreferences?.setBool(KeyConfig.guide_page_key, true);
   }
 

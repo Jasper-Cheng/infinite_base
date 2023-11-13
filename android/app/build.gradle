@@ -22,6 +22,10 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     namespace "com.example.infinite_base"
     compileSdkVersion flutter.compileSdkVersion
@@ -44,13 +48,45 @@ android {
         versionName flutterVersionName
     }
 
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            v1SigningEnabled true // V1签名
+            v2SigningEnabled true // V2签名
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            minifyEnabled false  //删除无用代码
+            shrinkResources false  //删除无用资源
+            signingConfig signingConfigs.release
+        }
+        defaultConfig {
+            minifyEnabled false  //删除无用代码
+            shrinkResources false  //删除无用资源
+            signingConfig signingConfigs.release
         }
     }
+
+}
+
+//按照需要添加
+dependencies {
+//    //3D地图so及jar
+    implementation 'com.amap.api:3dmap:latest.integration'
+//    //定位功能
+//    implementation 'com.amap.api:location:latest.integration'
+//    //搜索功能
+//    implementation 'com.amap.api:search:latest.integration'
+//    implementation('com.amap.api:location:6.4.0')
+//    implementation 'com.amap.api:3dmap:9.8.2'
+//    implementation 'com.amap.api:search:9.7.0'
 }
 
 flutter {
