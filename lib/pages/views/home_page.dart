@@ -39,7 +39,7 @@ class HomePageState extends BasePageState<HomePage> {
       initialCameraPosition: _kInitialPosition,
       privacyStatement: AMapPrivacyStatement(hasShow: true, hasAgree: true, hasContains: true),
       apiKey: AMapApiKey(
-          androidKey: '666a1db473e67ef1061ce8a2245a83f3'
+          androidKey: '35b9784e043d7f4d989c945372173c7c'
       ),
       onMapCreated: onMapCreated,
     );
@@ -54,15 +54,24 @@ class HomePageState extends BasePageState<HomePage> {
             width: MediaQuery.of(context).size.width,
             child: map,
           ),
-          Positioned(
-              right: 10,
-              bottom: 15,
-              child: Container(
-                alignment: Alignment.centerLeft,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: _approvalNumberWidget),
-              ))
+          Column(
+            children: [
+              TextButton(
+                onPressed: (){
+                },
+                child: Text("获取当前位置经纬度"),
+              )
+            ],
+          )
+          // Positioned(
+          //     right: 10,
+          //     bottom: 15,
+          //     child: Container(
+          //       alignment: Alignment.centerLeft,
+          //       child: Column(
+          //           mainAxisAlignment: MainAxisAlignment.start,
+          //           children: _approvalNumberWidget),
+          //     ))
         ],
       ),
     );
