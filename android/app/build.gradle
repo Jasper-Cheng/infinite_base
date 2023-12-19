@@ -28,7 +28,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace "com.example.infinite_base"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -37,13 +37,9 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.infinite_base"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
-        compileSdkVersion 33
+        minSdkVersion 20
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -61,41 +57,26 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            minifyEnabled false  //删除无用代码
-            shrinkResources false  //删除无用资源
             signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            minifyEnabled false  //删除无用代码
-            shrinkResources false  //删除无用资源
             signingConfig signingConfigs.release
-        }
-        defaultConfig {
-            minifyEnabled false  //删除无用代码
-            shrinkResources false  //删除无用资源
-            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
 }
 
-//按照需要添加
-dependencies {
-//    //3D地图so及jar
-    implementation 'com.amap.api:3dmap:latest.integration'
-//    //定位功能
-//    implementation 'com.amap.api:location:latest.integration'
-//    //搜索功能
-//    implementation 'com.amap.api:search:latest.integration'
-//    implementation('com.amap.api:location:6.4.0')
-//    implementation 'com.amap.api:3dmap:9.8.2'
-//    implementation 'com.amap.api:search:9.7.0'
-}
-
 flutter {
     source '../..'
+}
+
+dependencies {
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Map:7.5.8'
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Search:7.5.8'
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Util:7.5.8'
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Location_All:9.5.2'
 }
