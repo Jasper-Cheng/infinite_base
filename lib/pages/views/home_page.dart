@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_baidu_mapapi_map/flutter_baidu_mapapi_map.dart';
+import 'package:flutter_bmflocation/flutter_bmflocation.dart';
 import 'package:infinite_base/bases/base_controller.dart';
 import 'package:infinite_base/bases/base_page.dart';
 
