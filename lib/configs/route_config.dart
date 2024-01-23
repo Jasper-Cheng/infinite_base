@@ -10,7 +10,7 @@ import 'key_config.dart';
 
 class RouteConfig{
   static final GoRouter router = GoRouter(
-    initialLocation: RoutePath.splash,
+    initialLocation: RoutePath.main,
     errorBuilder: (context, state){
       Bundle bundle=Bundle();
       bundle.putObject(KeyConfig.map_error_key, state.error);
