@@ -44,7 +44,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> with WidgetsBi
   }
   Widget buildViews(BuildContext context);
 
-  BaseController initController();
+  BaseController? initController();
 
   @override
   void dispose() {
