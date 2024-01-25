@@ -33,12 +33,11 @@ abstract class BasePageState<T extends BasePage> extends State<T> with WidgetsBi
     if (baseController != null) {
       return ChangeNotifierProvider(
         create: (context) => baseController,
-        child: buildViews(context),
-        // child: Consumer<BaseController>(
-        //   builder: (BuildContext context, BaseController value, Widget? child) {
-        //     return buildViews(context);
-        //   },
-        // )
+        child: Consumer<BaseController>(
+          builder: (BuildContext context, BaseController value, Widget? child) {
+            return buildViews(context);
+          },
+        )
       );
     }
     return buildViews(context);

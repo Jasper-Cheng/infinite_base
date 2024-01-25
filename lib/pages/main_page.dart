@@ -20,6 +20,7 @@ class MainPageState extends BasePageState<MainPage> {
   @override
   Widget buildViews(BuildContext context) {
     return NormalToolbarView(
+      showLeadingView: false,
       body: Container(),
     ).addBackIntercept(_controller.exitApp);
   }

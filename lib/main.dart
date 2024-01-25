@@ -40,6 +40,10 @@ void main() {
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
+  SystemChrome.setPreferredOrientations([ 	 //强制横屏
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight
+  ]);
   runApp(
       MultiProvider(
         providers: [
