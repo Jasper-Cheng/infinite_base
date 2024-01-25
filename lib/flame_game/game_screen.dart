@@ -1,7 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_base/bases/base_controller.dart';
-import 'package:infinite_base/widgets/normal_toolbar_view.dart';
 
 import '../bases/base_page.dart';
 import 'endless_runner.dart';
@@ -17,11 +16,10 @@ class GameScreenState extends BasePageState<GameScreen> {
 
   @override
   Widget buildViews(BuildContext context) {
-    return NormalToolbarView(
-      showLeadingView: false,
-      body: GameWidget(
+    return Scaffold(
+      body: GameWidget<EndlessRunner>(
         game: EndlessRunner(),
-      )
+      ),
     );
   }
 
